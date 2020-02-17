@@ -1,25 +1,25 @@
 package com.company;
 
-public class ContactsManager {
+import java.util.ArrayList;
+import java.util.List;
 
-    Contact [] myFriends;
-    int friendsCount;
-//constructor
+public class ContactsManager {
+    List<Contact> myFriends;
+
+    // Constructor
     ContactsManager(){
-        myFriends = new Contact[20];
-        friendsCount = 0;
+        myFriends = new ArrayList<>();
     }
 
     // Methods:
     void addContact(Contact contact){
-        myFriends[friendsCount] = contact;
-        friendsCount++;
+        myFriends.add(contact);
     }
 
     Contact searchContact(String searchName){
-        for(int i=0; i<friendsCount; i++){
-            if(myFriends[i].fullName.contains(searchName)){
-                return myFriends[i];
+        for(Contact friend : myFriends){
+            if(friend.getFullName().contains(searchName)){
+                return friend;
             }
         }
         return null;
